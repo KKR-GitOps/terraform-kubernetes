@@ -1,0 +1,20 @@
+name: Wiz Scans
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+ call-wiz-iac-scan:
+    uses: KKR-Security/wiz-workflows/.github/workflows/wiz_iac_shared_scan.yml@main 
+    secrets:
+        WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID}}
+        WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET}}
+        WIZ_TOKEN: ${{ secrets.WIZ_TOKEN }}
+ call-wiz-image-scan:
+    uses: KKR-Security/wiz-workflows/.github/workflows/wiz_image_shared_scan.yml@main
+    secrets:
+        WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID}}
+        WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET}}
+        WIZ_TOKEN: ${{ secrets.WIZ_TOKEN }}
