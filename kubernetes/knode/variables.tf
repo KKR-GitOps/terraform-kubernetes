@@ -79,3 +79,7 @@ variable "tags" {
   type    = map(string)
   default = {}
 }
+
+variable "suspended_processes" {
+  default = []
+}
