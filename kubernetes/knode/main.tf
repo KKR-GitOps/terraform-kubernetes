@@ -63,7 +63,7 @@ resource "aws_launch_template" "this" {
   iam_instance_profile {
     name = aws_iam_instance_profile.instance_profile.name
   }
-  ebs_optimized = true
+  ebs_optimized          = true
   update_default_version = true
 
   network_interfaces {
@@ -101,6 +101,7 @@ resource "aws_autoscaling_group" "asg" {
   health_check_grace_period = 60
   vpc_zone_identifier       = var.subnet_ids
   target_group_arns         = var.target_group_arns
+  suspended_processes       = var.suspended_processes
 
   mixed_instances_policy {
     instances_distribution {
